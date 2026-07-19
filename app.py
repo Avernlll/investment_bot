@@ -5,7 +5,6 @@ import matplotlib
 matplotlib.use('Agg')
 import numpy as np
 from openai import OpenAI
-from sentence_transformers import SentenceTransformer
 import time
 import signal_generator
 import hashlib
