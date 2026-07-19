@@ -5,11 +5,9 @@ import matplotlib
 matplotlib.use('Agg')
 import numpy as np
 from openai import OpenAI
-import time
-import signal_generator
-import hashlib
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 st.set_page_config(page_title="📈 AI Investment Bot + Chat", layout="wide")
@@ -31,11 +29,6 @@ def load_data():
     return prices, fundamentals
 
 prices, fundamentals = load_data()
-
-# HF Token
-
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
-
 
 # Check if DB exists and CSV hasn't changed
 csv_hash = hashlib.md5(open("stock_prices.csv", "rb").read()).hexdigest()
