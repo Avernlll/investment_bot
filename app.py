@@ -5,7 +5,6 @@ import matplotlib
 matplotlib.use('Agg')
 import numpy as np
 from openai import OpenAI
-import chromadb
 from sentence_transformers import SentenceTransformer
 import time
 import signal_generator
@@ -43,15 +42,6 @@ os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 csv_hash = hashlib.md5(open("stock_prices.csv", "rb").read()).hexdigest()
 db_path = f"./stock_chat_db_{csv_hash[:8]}"
 
-if os.path.exists(db_path):
-    # Load existing DB
-    chroma_client = chromadb.PersistentClient(path=db_path)
-    collection = chroma_client.get_collection(name="stock_docs")
-else:
-    # Build new DB and save
-    chroma_client = chromadb.PersistentClient(path=db_path)
-    collection = chroma_client.create_collection(name="stock_docs")
-    # ... add chunks ...
 
 # Sidebar
 st.sidebar.header("⚙️ Controls")
