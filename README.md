@@ -35,4 +35,4 @@ A data-driven investment assistant that analyzes US stocks, generates **BUY/HOLD
    ```bash
    streamlit run app.py
 ## Author
-Avernlll 
+Avernlll - https://github.com/Avernlll
